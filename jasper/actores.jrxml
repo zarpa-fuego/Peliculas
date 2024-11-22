@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20" uuid="ae893186-700b-4122-98df-e13da1ace170">
+  <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+  <property name="com.jaspersoft.studio.data.defaultdataadapter" value="almacen_dbs"/>
+  <parameter name="imagenurl" class="java.lang.String"/>
+
+  <queryString language="SQL">
+    <![CDATA[select * from actor]]>
+  </queryString>
+  <field name="nombre" class="java.lang.String">
+    <property name="com.jaspersoft.studio.field.name" value="nombre"/>
+    <property name="com.jaspersoft.studio.field.label" value="nombre"/>
+    <property name="com.jaspersoft.studio.field.tree.path" value="actor"/>
+  </field>
+  <field name="apellido" class="java.lang.String">
+    <property name="com.jaspersoft.studio.field.name" value="apellido"/>
+    <property name="com.jaspersoft.studio.field.label" value="apellido"/>
+    <property name="com.jaspersoft.studio.field.tree.path" value="actor"/>
+  </field>
+  <background>
+    <band splitType="Stretch"/>
+  </background>
+  <title>
+    <band height="79" splitType="Stretch">
+      <image>
+        <reportElement x="13" y="14" width="169" height="42" uuid="13d3bc7e-0d2a-4d18-9466-1dd3c5923586"/>
+        <imageExpression><![CDATA[$P{imagenurl}]]></imageExpression>
+      </image>
+      <staticText>
+        <reportElement x="227" y="40" width="100" height="30" uuid="f0c76b2b-aef9-4afc-a36f-a2e9ff701f65"/>
+        <textElement textAlignment="Center">
+          <font size="12" isBold="true"/>
+        </textElement>
+        <text><![CDATA[Lista de Actores]]></text>
+      </staticText>
+    </band>
+  </title>
+  <pageHeader>
+    <band height="35" splitType="Stretch"/>
+  </pageHeader>
+  <columnHeader>
+    <band height="31" splitType="Stretch">
+      <staticText>
+        <reportElement x="56" y="0" width="150" height="20" uuid="ca8a6b52-ff5a-4147-bd16-7e9438b7744d">
+          <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca173241-d5cd-4cbf-b945-ffae076dc4dd"/>
+        </reportElement>
+        <text><![CDATA[nombre]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="270" y="0" width="220" height="20" uuid="c311acac-f373-4b9c-b113-a5fa399b3c0d">
+          <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="16d7d3dd-595e-4f85-be9e-5e695dee5ffe"/>
+        </reportElement>
+        <text><![CDATA[apellido]]></text>
+      </staticText>
+    </band>
+  </columnHeader>
+  <detail>
+    <band height="37" splitType="Stretch">
+      <textField>
+        <reportElement x="56" y="10" width="150" height="16" uuid="7e176af3-ddc7-4097-8c7c-b58cfbc4021b">
+          <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca173241-d5cd-4cbf-b945-ffae076dc4dd"/>
+        </reportElement>
+        <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="270" y="10" width="220" height="16" uuid="e608dd3b-4a7d-4a25-b874-54155e9afd49">
+          <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="16d7d3dd-595e-4f85-be9e-5e695dee5ffe"/>
+        </reportElement>
+        <textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+      </textField>
+    </band>
+  </detail>
+  <columnFooter>
+    <band height="45" splitType="Stretch"/>
+  </columnFooter>
+  <pageFooter>
+    <band height="54" splitType="Stretch"/>
+  </pageFooter>
+  <summary>
+    <band height="42" splitType="Stretch"/>
+  </summary>
+</jasperReport>

@@ -6,6 +6,7 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,9 +17,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import net.sf.jasperreports.engine.JasperPrint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.edu.upeu.sysalmacenfx.componente.ColumnInfo;
+import pe.edu.upeu.sysalmacenfx.componente.ReportAlert;
 import pe.edu.upeu.sysalmacenfx.componente.TableViewHelper;
 import pe.edu.upeu.sysalmacenfx.componente.Toast;
 import pe.edu.upeu.sysalmacenfx.modelo.Actor;
@@ -37,6 +40,7 @@ public class ActorControl {
 
     @Autowired
     private ActorService actorService;
+    private JasperPrint jasperPrint;
 
     @FXML
     TextField txtNombre, txtApellido;
@@ -179,5 +183,19 @@ public class ActorControl {
         Map.Entry<String, String> primerError = erroresOrdenados.entrySet().iterator().next();
         lbnMsg.setText(primerError.getValue()); // Mostrar el mensaje del primer error
         lbnMsg.setStyle("-fx-text-fill: red; -fx-font-size: 16px;");
+    }
+
+    @FXML
+    public void printPDF() {
+        try {
+            jasperPrint= actorService.runReport();
+            Platform.runLater(() -> {
+                ReportAlert reportAlert=new ReportAlert(jasperPrint);
+                reportAlert.show();
+
+            });
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }

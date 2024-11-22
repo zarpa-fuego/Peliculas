@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="68bf37e7-882d-4335-b8ac-5b8a3bcfc2ae">
+  <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+  <property name="com.jaspersoft.studio.data.defaultdataadapter" value="almacen_dbs"/>
+  <parameter name="imagenurl" class="java.lang.String"/>
+  <queryString language="SQL">
+    <![CDATA[Select * from genero]]>
+  </queryString>
+  <field name="nombre" class="java.lang.String">
+    <property name="com.jaspersoft.studio.field.name" value="nombre"/>
+    <property name="com.jaspersoft.studio.field.label" value="nombre"/>
+    <property name="com.jaspersoft.studio.field.tree.path" value="genero"/>
+  </field>
+  <background>
+    <band splitType="Stretch"/>
+  </background>
+  <title>
+    <band height="67" splitType="Stretch">
+      <image>
+        <reportElement x="13" y="14" width="169" height="42" uuid="13d3bc7e-0d2a-4d18-9466-1dd3c5923586"/>
+        <imageExpression><![CDATA[$P{imagenurl}]]></imageExpression>
+      </image>
+      <staticText>
+        <reportElement x="227" y="20" width="100" height="30" uuid="27c90772-7939-428f-b54c-30661c700d87"/>
+        <textElement textAlignment="Center">
+          <font size="12" isBold="true"/>
+        </textElement>
+        <text><![CDATA[Lista de Generos]]></text>
+      </staticText>
+    </band>
+  </title>
+  <pageHeader>
+    <band height="35" splitType="Stretch"/>
+  </pageHeader>
+  <columnHeader>
+    <band height="19" splitType="Stretch">
+      <staticText>
+        <reportElement x="60" y="0" width="100" height="19" uuid="9d78a954-f943-4a79-8231-c19fee19589d">
+          <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="13f2a678-a3d6-4d3c-bd0b-f5e602938ddd"/>
+        </reportElement>
+        <text><![CDATA[nombre]]></text>
+      </staticText>
+    </band>
+  </columnHeader>
+  <detail>
+    <band height="24" splitType="Stretch">
+      <textField>
+        <reportElement x="60" y="0" width="240" height="20" uuid="f35170ce-1b60-4d11-bf75-463919758e39">
+          <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="13f2a678-a3d6-4d3c-bd0b-f5e602938ddd"/>
+        </reportElement>
+        <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+      </textField>
+    </band>
+  </detail>
+  <columnFooter>
+    <band height="45" splitType="Stretch"/>
+  </columnFooter>
+  <pageFooter>
+    <band height="54" splitType="Stretch"/>
+  </pageFooter>
+  <summary>
+    <band height="42" splitType="Stretch"/>
+  </summary>
+</jasperReport>
