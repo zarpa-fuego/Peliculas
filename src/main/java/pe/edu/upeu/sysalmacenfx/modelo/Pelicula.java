@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -19,7 +20,7 @@ public class Pelicula {
     @Id
     @Column(nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idPelecula;
+    private Integer idPelicula;
 
     @Column(nullable = false, length = 50)
     private String nombre;
@@ -33,7 +34,7 @@ public class Pelicula {
     @Column(nullable = false)
     private Integer stock;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "genero_id", nullable = false)
     private Genero genero;
 
@@ -43,12 +44,12 @@ public class Pelicula {
     @OneToMany(mappedBy = "pelecula")
     private Set<ActorPelicula> peleculaActorPeliculas;
 
-    public Integer getIdPelecula() {
-        return idPelecula;
+    public Integer getIdPelicula() {
+        return idPelicula;
     }
 
-    public void setIdPelecula(final Integer idPelecula) {
-        this.idPelecula = idPelecula;
+    public void setIdPelicula(final Integer idPelecula) {
+        this.idPelicula = idPelecula;
     }
 
     public String getNombre() {
@@ -105,6 +106,10 @@ public class Pelicula {
 
     public void setPeleculaActorPeliculas(final Set<ActorPelicula> peleculaActorPeliculas) {
         this.peleculaActorPeliculas = peleculaActorPeliculas;
+    }
+
+    public String getGeneroNombre() {
+        return genero != null ? genero.getNombre() : null;
     }
 
 }
